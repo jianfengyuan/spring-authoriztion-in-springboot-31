@@ -24,14 +24,14 @@ public class DefaultSecurityConfig {
     @Autowired
     private DataSource dataSource;
 
-//    @Bean
-//    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-//        http.authorizeHttpRequests(authorizeRequests ->
-//                        authorizeRequests.anyRequest().authenticated()
-//                )
-//                .formLogin(Customizer.withDefaults());
-//        return http.build();
-//    }
+    @Bean
+    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(authorizeRequests ->
+                        authorizeRequests.anyRequest().authenticated()
+                )
+                .formLogin(Customizer.withDefaults());
+        return http.build();
+    }
     @Bean
     UserDetailsService users() {
 //        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();

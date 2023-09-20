@@ -23,7 +23,7 @@ public class OAuthRequestInterceptor implements RequestInterceptor {
 
         OAuth2AuthorizeRequest oAuth2AuthorizeRequest = OAuth2AuthorizeRequest
                 .withClientRegistrationId("articles-client-oidc")
-                .principal("articles-client")
+                .principal("admin")
                 .build();
         final OAuth2AccessToken accessToken = oAuth2AuthorizedClientManager.authorize(oAuth2AuthorizeRequest)
                 .getAccessToken();

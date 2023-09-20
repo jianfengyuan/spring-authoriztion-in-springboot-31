@@ -15,20 +15,20 @@ public class Oauth2ClientConfig {
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
-//    @Bean
-//    public OAuth2AuthorizedClientManager authorizedClientManager(
-//            ClientRegistrationRepository clientRegistrationRepository,
-//            OAuth2AuthorizedClientService authorizedClientService) {
-//
-//        OAuth2AuthorizedClientProvider authorizedClientProvider = OAuth2AuthorizedClientProviderBuilder.builder()
-//                .clientCredentials().build();
-//
-//        AuthorizedClientServiceOAuth2AuthorizedClientManager authorizedClientManager = new AuthorizedClientServiceOAuth2AuthorizedClientManager(
-//                clientRegistrationRepository, authorizedClientService);
-//        authorizedClientManager.setAuthorizedClientProvider(authorizedClientProvider);
-//
-//        return authorizedClientManager;
-//    }
+    @Bean
+    public OAuth2AuthorizedClientManager authorizedClientManager(
+            ClientRegistrationRepository clientRegistrationRepository,
+            OAuth2AuthorizedClientService authorizedClientService) {
+
+        OAuth2AuthorizedClientProvider authorizedClientProvider = OAuth2AuthorizedClientProviderBuilder.builder()
+                .clientCredentials().build();
+
+        AuthorizedClientServiceOAuth2AuthorizedClientManager authorizedClientManager = new AuthorizedClientServiceOAuth2AuthorizedClientManager(
+                clientRegistrationRepository, authorizedClientService);
+        authorizedClientManager.setAuthorizedClientProvider(authorizedClientProvider);
+
+        return authorizedClientManager;
+    }
 
 //
     @Bean

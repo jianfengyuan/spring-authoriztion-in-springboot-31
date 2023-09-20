@@ -1,5 +1,6 @@
 package demo.Controller;
 
+import demo.config.DemoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
@@ -15,6 +16,9 @@ public class ArticleController {
     @Autowired
     private WebClient webClient;
 
+    @Autowired
+    private DemoClient demoClient;
+
     @GetMapping(value = "/articles")
     public String[] getArticles(
             @RegisteredOAuth2AuthorizedClient("articles-client-oidc") OAuth2AuthorizedClient authorizedClient
@@ -26,5 +30,11 @@ public class ArticleController {
                 .retrieve()
                 .bodyToMono(String[].class)
                 .block();
+    }
+
+    @GetMapping(value = "/feign/articles")
+    public String[] getArticles(
+    ) {
+        return demoClient.getArticles();
     }
 }
