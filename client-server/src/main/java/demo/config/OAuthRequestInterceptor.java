@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
 
 
+
 public class OAuthRequestInterceptor implements RequestInterceptor {
 
     @Autowired
@@ -29,6 +30,7 @@ public class OAuthRequestInterceptor implements RequestInterceptor {
                 .withClientRegistrationId("internal-client")
                 .principal("admin")
                 .build();
+        System.out.println("1111111111111111111111");
         final OAuth2AccessToken accessToken = oAuth2AuthorizedClientManager.authorize(oAuth2AuthorizeRequest)
                 .getAccessToken();
 

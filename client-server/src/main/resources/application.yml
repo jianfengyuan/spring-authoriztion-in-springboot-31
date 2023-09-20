@@ -11,19 +11,19 @@ spring:
     oauth2:
       client:
         registration:
-          articles-client-oidc:
-            provider: spring
-            client-id: articles-client
-            client-secret: secret
-            authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            scope: openid, articles.read
-            client-name: articles-client-oidc
+#          articles-client-oidc:
+#            provider: spring
+#            client-id: articles-client
+#            client-secret: secret
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+#            scope: openid, articles.read
+#            client-name: articles-client-oidc
           internal-client:
             provider: spring
             client-id: internal-client
             client-secret: secret
-            authorization-grant-type: client_credential
+            authorization-grant-type: client_credentials
             scope: articles.read
             client-name: internal-client
         provider:
@@ -32,5 +32,5 @@ spring:
 logging:
   level:
     org.springframework.web: trace
-    org.springframework.security: debug
-    org.springframework.security.oauth2: debug
+    org.springframework.security: trace
+    org.springframework.security.oauth2: trace
