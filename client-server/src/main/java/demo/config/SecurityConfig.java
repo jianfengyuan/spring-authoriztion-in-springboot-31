@@ -8,17 +8,17 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-//@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = true)
 @Configuration
 public class SecurityConfig {
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeHttpRequests(authorizeRequests ->
-//                        authorizeRequests.anyRequest().authenticated()
-//                )
-//                .oauth2Login(oauth2Login ->
-//                        oauth2Login.loginPage("/oauth2/authorization/articles-client-oidc"));
-//        return http.build();
-//    }
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authorizeRequests ->
+                        authorizeRequests.anyRequest().authenticated()
+                )
+                .oauth2Login(oauth2Login ->
+                        oauth2Login.loginPage("/oauth2/authorization/articles-client-oidc"));
+        return http.build();
+    }
 }
