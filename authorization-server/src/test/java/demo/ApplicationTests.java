@@ -52,4 +52,20 @@ public class ApplicationTests {
                 .build();
         registeredClientRepository.save(registeredClient);
     }
+
+    @Test
+    void testSaveClient1() {
+        RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
+                .clientId("internal-client")
+                .clientSecret(new BCryptPasswordEncoder().encode("secret"))
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+//                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/internal-client")
+//                .redirectUri("http://127.0.0.1:8080/authorized")
+//                .scope(OidcScopes.OPENID)
+                .scope("articles.read")
+//                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
+                .build();
+        registeredClientRepository.save(registeredClient);
+    }
 }

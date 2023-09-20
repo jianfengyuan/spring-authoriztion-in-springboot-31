@@ -19,14 +19,13 @@ spring:
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: openid, articles.read
             client-name: articles-client-oidc
-#          articles-client-authorization-code:
-#            provider: spring
-#            client-id: articles-client
-#            client-secret: secret
-#            authorization-grant-type: authorization_code
-#            redirect-uri: "http://127.0.0.1:8080/authorized"
-#            scope: articles.read
-#            client-name: articles-client-authorization-code
+          internal-client:
+            provider: spring
+            client-id: internal-client
+            client-secret: secret
+            authorization-grant-type: client_credential
+            scope: articles.read
+            client-name: internal-client
         provider:
           spring:
             issuer-uri: http://auth-server:9000

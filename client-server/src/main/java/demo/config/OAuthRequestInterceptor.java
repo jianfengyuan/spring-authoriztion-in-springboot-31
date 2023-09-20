@@ -21,8 +21,12 @@ public class OAuthRequestInterceptor implements RequestInterceptor {
 
     private String getAuthorizationToken() {
 
+//        OAuth2AuthorizeRequest oAuth2AuthorizeRequest = OAuth2AuthorizeRequest
+//                .withClientRegistrationId("articles-client-oidc")
+//                .principal("admin")
+//                .build();
         OAuth2AuthorizeRequest oAuth2AuthorizeRequest = OAuth2AuthorizeRequest
-                .withClientRegistrationId("articles-client-oidc")
+                .withClientRegistrationId("internal-client")
                 .principal("admin")
                 .build();
         final OAuth2AccessToken accessToken = oAuth2AuthorizedClientManager.authorize(oAuth2AuthorizeRequest)
